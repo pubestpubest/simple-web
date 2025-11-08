@@ -14,43 +14,9 @@
       <h1 class="title">App Version 1.0.0</h1>
       <p id="summary">A lightweight glance at what matters right now.</p>
     </header>
-    <main class="container">
-      <section>
-        <h2>Current Snapshot</h2>
-        <p>
-          <strong>Date:</strong>
-          <span id="current-date">--</span>
-        </p>
-        <p>
-          <strong>Time:</strong>
-          <span id="current-time">--</span>
-        </p>
-      </section>
-    </main>
+    <main></main>
     <footer class="container">
       <small>Powered by Pico CSS</small>
     </footer>
-    <script>
-      const dateFormatter = new Intl.DateTimeFormat(undefined, {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      });
-      const timeFormatter = new Intl.DateTimeFormat(undefined, {
-        hour: "numeric",
-        minute: "numeric",
-        second: "numeric",
-      });
-      const dateElement = document.getElementById("current-date");
-      const timeElement = document.getElementById("current-time");
-      function updateClock() {
-        const now = new Date();
-        dateElement.textContent = dateFormatter.format(now);
-        timeElement.textContent = timeFormatter.format(now);
-      }
-      updateClock();
-      setInterval(updateClock, 1000);
-    </script>
   </body>
 </html>
