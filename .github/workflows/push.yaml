@@ -1,0 +1,23 @@
+name: Notify Discord and Deploy Webhook
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Discord notification
+        uses: Ilshidur/action-discord@0.4.0
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        with:
+          args: "✅ ${{ github.repository }} has been built and pushed to Docker Hub."
+
+      - name: Trigger remote webhook deploy
+        run: |
+          curl -X POST ${{ secrets.WEBHOOK_URL }}'
