@@ -19,9 +19,7 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
         with:
-          args: "✅ Deployment started for **${{ github.repository }}**
-🔗 Repo: ${{ github.server_url }}/${{ github.repository }}
-📝 Commit: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
+          args: "✅ Deployment started for **${{ github.repository }}**\n🔗 Repo: ${{ github.server_url }}/${{ github.repository }}\n📝 Commit: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}"
 
       - name: Trigger remote deployment webhook
         env:
